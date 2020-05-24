@@ -1,0 +1,37 @@
+.fade-enter,
+.fade-enter-active {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.fade-exit {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.fade-exit-active {
+	opacity: 0;
+	transform: translateY(-300px);
+	transition: transform 600ms ease-out, opacity 500ms;
+}
+::-webkit-scrollbar {
+	width: 0px; /* Remove scrollbar space */
+	background: transparent; /* Optional: just make scrollbar invisible */
+}
+.scroll-parent {
+	width: 300px;
+	height: 450px;
+	max-height: 30rem;
+	display: flex;
+	overflow-x: scroll;
+	scroll-snap-type: x mandatory;
+}
+
+.scroll-child {
+	scroll-snap-align: center;
+	height: 450px;
+	flex: 0 0 100%;
+	::-webkit-scrollbar {
+		display: none;
+	}
+}

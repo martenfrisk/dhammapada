@@ -1,0 +1,9 @@
+@tailwind base;
+
+body {
+    @apply bg-yellow-100;
+}
+
+@tailwind components;
+
+@tailwind utilities;
