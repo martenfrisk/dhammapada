@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/dhammapada/static/css/main.2a44ff2e.chunk.css",
+    "main.js": "/dhammapada/static/js/main.712bb17d.chunk.js",
+    "main.js.map": "/dhammapada/static/js/main.712bb17d.chunk.js.map",
+    "runtime-main.js": "/dhammapada/static/js/runtime-main.533c0db8.js",
+    "runtime-main.js.map": "/dhammapada/static/js/runtime-main.533c0db8.js.map",
+    "static/js/2.8afbd49c.chunk.js": "/dhammapada/static/js/2.8afbd49c.chunk.js",
+    "static/js/2.8afbd49c.chunk.js.map": "/dhammapada/static/js/2.8afbd49c.chunk.js.map",
+    "index.html": "/dhammapada/index.html",
+    "precache-manifest.c730fcebce9a3823fc8d89cbf39d0ec9.js": "/dhammapada/precache-manifest.c730fcebce9a3823fc8d89cbf39d0ec9.js",
+    "service-worker.js": "/dhammapada/service-worker.js",
+    "static/css/main.2a44ff2e.chunk.css.map": "/dhammapada/static/css/main.2a44ff2e.chunk.css.map",
+    "static/js/2.8afbd49c.chunk.js.LICENSE.txt": "/dhammapada/static/js/2.8afbd49c.chunk.js.LICENSE.txt",
+    "static/media/lotus.svg": "/dhammapada/static/media/lotus.2b393734.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.533c0db8.js",
+    "static/js/2.8afbd49c.chunk.js",
+    "static/css/main.2a44ff2e.chunk.css",
+    "static/js/main.712bb17d.chunk.js"
+  ]
+}
