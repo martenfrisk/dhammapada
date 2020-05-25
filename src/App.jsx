@@ -25,7 +25,7 @@ function App() {
 					</Switch>
 				</animated.div>
 			))}
-			<div className="my-auto mb-0 font-light lowercase">Footer content</div>
+			<div className="my-auto mb-0 text-xs font-light text-red-900 lowercase">Footer content</div>
 		</div>
 	)
 }

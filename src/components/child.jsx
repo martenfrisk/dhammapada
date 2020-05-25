@@ -3,35 +3,15 @@ import { dhp } from '../dhp-1'
 import '../App.css'
 import { useParams } from 'react-router-dom'
 
-
 export default function Child() {
 	let { id } = useParams()
 	let currText = dhp[id]
-
+	let chapterName = currText[0]
 	function addLineBreaks(arr, i) {
-		let verseNr = i
-		verseNr++
-		return arr.map((item, index) => {
+		return arr.slice(1, arr.length).map((item, index) => {
 			let ex = 'w-full'
 			let clas = item[0] + ' ' + ex
-			return (
-				<div className="flex justify-center w-full">
-					<div className="w-10 pr-12 text-xs text-right text-red-800">
-						{index === 0 ? (
-							<div id={verseNr}>
-								<a href={`#${verseNr}`}>{verseNr}</a>
-							</div>
-						) : (
-							' '
-						)}
-					</div>
-					{/* <div className="w-10"> </div> */}
-					<div className={clas}>
-						{item[1]}
-						<br />
-					</div>
-				</div>
-			)
+			return <div className={clas}>{item[1]}</div>
 		})
 	}
 	const onWheelTwo = (e) => {
@@ -42,19 +22,14 @@ export default function Child() {
 			document.getElementById('container').scrollBy(scrollX, 0)
 		}
 	}
-	const scrollJack = (dx, dy) => {
-		// var magnitude = Math.pow(dx * dx + dy * dy, 0.5)
-		var direction = dy + dx > 0 ? 1 : -1
-		return direction
-    }
-    
+	const scrollJack = (dx, dy) => (dy + dx > 0 ? 1 : -1)
+
 	const leftScroll = () => {
 		var container = document.getElementById('container')
 		var containerScrollPosition = document.getElementById('container').scrollLeft
 		container.scrollTo({
 			top: 0,
-			left: containerScrollPosition - 300,
-			behavior: 'smooth' //if you want smooth scrolling
+			left: containerScrollPosition - 300
 		})
 	}
 	const rightScroll = () => {
@@ -62,8 +37,7 @@ export default function Child() {
 		var containerScrollPosition = document.getElementById('container').scrollLeft
 		container.scrollTo({
 			top: 0,
-			left: containerScrollPosition + 300,
-			behavior: 'smooth' //if you want smooth scrolling
+			left: containerScrollPosition + 300
 		})
 	}
 
@@ -80,20 +54,23 @@ export default function Child() {
 	}
 
 	return (
-		<div>
+		<div className="flex flex-col items-center">
 			<ScrollResetOnMount />
-			<div
-				className="content-center w-full mt-20 scrolling-touch md:w-1/2 scroll-parent lg:w-1/2 hide-scrollbar"
-				id="container"
-			>
+			<div className="pt-12 -mt-1 font-serif text-lg text-red-900">{chapterName && chapterName}</div>
+			<div className="justify-start w-full mt-2 scrolling-touch rounded-lg md:w-1/2 scroll-parent lg:w-1/2" id="container">
 				{currText &&
-					currText.map((item, index) => {
+					currText.slice(1, currText.length).map((item, index) => {
 						return (
 							<div
-								className="flex flex-col items-center justify-start font-serif text-lg font-medium leading-9 text-red-900 scroll-child"
+								className="flex flex-col items-center justify-start font-serif font-medium leading-9 text-red-900 scroll-child"
 								key={index}
 								onWheel={onWheelTwo}
 							>
+                            <div className="pb-2 opacity-75">
+								{item[0]}
+
+                            </div>
+
 								{addLineBreaks(item, index)}
 							</div>
 						)
@@ -101,13 +78,13 @@ export default function Child() {
 			</div>
 
 			<div
-				className="absolute top-0 right-auto justify-start hidden w-12 -ml-4 text-xs text-red-800 opacity-50 cursor-pointer select-none h-80 mt-72 md:flex md:items-center"
+				className="absolute top-0 flex items-center justify-start w-12 text-xs text-red-800 opacity-50 cursor-pointer select-none md:text-base left-4 md:left-20 h-80 mt-72 lg:left-80"
 				onClick={leftScroll}
 			>
 				&#10094;
 			</div>
 			<div
-				className="absolute top-0 left-auto justify-end hidden w-12 text-xs text-red-800 opacity-50 cursor-pointer select-none h-80 mt-72 ml-80 md:flex md:items-center"
+				className="absolute top-0 flex items-center justify-end w-12 text-xs text-red-800 opacity-50 cursor-pointer select-none md:text-base right-4 h-80 mt-72 lg:right-80 md:right-20"
 				onClick={rightScroll}
 			>
 				&#10095;

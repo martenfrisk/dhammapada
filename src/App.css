@@ -30,20 +30,21 @@
 
 .scroll-parent {
   width: 300px;
-  height: 450px;
-  max-height: 30rem;
-  margin-left: 35px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   overflow-x: scroll;
   -ms-scroll-snap-type: x mandatory;
       scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  /* IE 11 */
+  scrollbar-width: none;
+  /* Firefox 64 */
 }
 
 .scroll-child {
   scroll-snap-align: center;
-  height: 450px;
+  height: 500px;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 100%;
           flex: 0 0 100%;
@@ -51,13 +52,5 @@
 
 .scroll-child ::-webkit-scrollbar {
   display: none;
-}
-
-.hide-scrollbar {
-  overflow: auto;
-  -ms-overflow-style: none;
-  /* IE 11 */
-  scrollbar-width: none;
-  /* Firefox 64 */
 }
 /*# sourceMappingURL=App.css.map */
