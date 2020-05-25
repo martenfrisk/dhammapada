@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { dhp } from '../dhp-1'
 import '../App.css'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
-export default function Child() {
+export default function Child(props) {
 	let { id } = useParams()
 	let currText = dhp[id]
 	let chapterName = currText[0]
@@ -56,7 +56,7 @@ export default function Child() {
 	return (
 		<div className="flex flex-col items-center">
 			<ScrollResetOnMount />
-			<div className="pt-12 -mt-1 font-serif text-lg text-red-900">{chapterName && chapterName}</div>
+			<div className="pt-12 -mt-1 font-serif text-base text-red-900 cursor-pointer" onClick={props.click}>&#9662;{props.title && ` ${chapterName}`}</div>
 			<div className="justify-start w-full mt-2 scrolling-touch rounded-lg md:w-1/2 scroll-parent lg:w-1/2" id="container">
 				{currText &&
 					currText.slice(1, currText.length).map((item, index) => {
@@ -89,6 +89,15 @@ export default function Child() {
 			>
 				&#10095;
 			</div>
+            <div className="flex">
+
+            {id > 1 &&
+            <Link to={`/${parseInt(id) - 1}`} className="mr-2 font-serif text-sm text-red-900 lowercase">Previous</Link>
+            }
+            {id < 23 &&
+            <Link to={`/${parseInt(id) + 1}`} className="ml-2 font-serif text-sm text-red-900 lowercase">Next</Link>
+            }
+            </div>
 		</div>
 	)
 }

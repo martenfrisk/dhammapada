@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navigation from './components/nav'
 import Child from './components/child'
 import Home from './components/home'
@@ -8,6 +8,8 @@ import { Switch, Route, useLocation } from 'react-router-dom'
 import { useTransition, animated } from 'react-spring'
 
 function App() {
+	const [ toggleTitle, setToggleTitle ] = useState(true)
+	const titleToggle = () => setToggleTitle((prevState) => !prevState)
 	const location = useLocation()
 	const transitions = useTransition(location, location => location.pathname, {
 		from: { opacity: 0, display: 'none' },
@@ -21,7 +23,7 @@ function App() {
 				<animated.div key={key} style={props}>
 					<Switch location={item}>
 						<Route path="/dhammapada" component={Home} />
-						<Route path="/:id" component={Child} />
+						<Route path="/:id" children={<Child title={toggleTitle} click={titleToggle} />} />
 					</Switch>
 				</animated.div>
 			))}
