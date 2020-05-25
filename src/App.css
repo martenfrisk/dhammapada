@@ -32,6 +32,7 @@
   width: 300px;
   height: 450px;
   max-height: 30rem;
+  margin-left: 35px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -50,5 +51,13 @@
 
 .scroll-child ::-webkit-scrollbar {
   display: none;
+}
+
+.hide-scrollbar {
+  overflow: auto;
+  -ms-overflow-style: none;
+  /* IE 11 */
+  scrollbar-width: none;
+  /* Firefox 64 */
 }
 /*# sourceMappingURL=App.css.map */
