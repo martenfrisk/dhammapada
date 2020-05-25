@@ -29,7 +29,8 @@ export default function Child(props) {
 		var containerScrollPosition = document.getElementById('container').scrollLeft
 		container.scrollTo({
 			top: 0,
-			left: containerScrollPosition - 300
+			left: containerScrollPosition - 300,
+			behavior: 'smooth'
 		})
 	}
 	const rightScroll = () => {
@@ -37,9 +38,25 @@ export default function Child(props) {
 		var containerScrollPosition = document.getElementById('container').scrollLeft
 		container.scrollTo({
 			top: 0,
-			left: containerScrollPosition + 300
+			left: containerScrollPosition + 300,
+			behavior: 'smooth'
 		})
 	}
+
+	useEffect(() => {
+		const handleArrow = (event) => {
+			if (event.key === 'ArrowLeft') {
+				leftScroll()
+			} else if (event.key === 'ArrowRight') {
+				rightScroll()
+			}
+		}
+		window.addEventListener('keydown', handleArrow)
+
+		return () => {
+			window.removeEventListener('keydown', handleArrow)
+		}
+	}, [])
 
 	function ScrollResetOnMount() {
 		useEffect(() => {
@@ -56,8 +73,13 @@ export default function Child(props) {
 	return (
 		<div className="flex flex-col items-center">
 			<ScrollResetOnMount />
-			<div className="pt-12 -mt-1 font-serif text-base text-red-900 cursor-pointer" onClick={props.click}>&#9662;{props.title && ` ${chapterName}`}</div>
-			<div className="justify-start w-full mt-2 scrolling-touch rounded-lg md:w-1/2 scroll-parent lg:w-1/2" id="container">
+			<div className="pt-12 -mt-1 font-serif text-base text-red-900 cursor-pointer" onClick={props.click}>
+				&#9662;{props.title && `Chapter ${id}: ${chapterName}`}
+			</div>
+			<div
+				className="justify-start w-full mt-2 scrolling-touch rounded-lg md:w-1/2 scroll-parent lg:w-1/2"
+				id="container"
+			>
 				{currText &&
 					currText.slice(1, currText.length).map((item, index) => {
 						return (
@@ -66,10 +88,7 @@ export default function Child(props) {
 								key={index}
 								onWheel={onWheelTwo}
 							>
-                            <div className="pb-2 opacity-75">
-								{item[0]}
-
-                            </div>
+								<div className="pb-2 opacity-75">{item[0]}</div>
 
 								{addLineBreaks(item, index)}
 							</div>
@@ -89,15 +108,18 @@ export default function Child(props) {
 			>
 				&#10095;
 			</div>
-            <div className="flex">
-
-            {id > 1 &&
-            <Link to={`/${parseInt(id) - 1}`} className="mr-2 font-serif text-sm text-red-900 lowercase">Previous</Link>
-            }
-            {id < 23 &&
-            <Link to={`/${parseInt(id) + 1}`} className="ml-2 font-serif text-sm text-red-900 lowercase">Next</Link>
-            }
-            </div>
+			<div className="flex opacity-50">
+				{id > 1 && (
+					<Link to={`/${parseInt(id) - 1}`} className="mr-2 font-serif text-sm text-red-900 lowercase">
+						Previous
+					</Link>
+				)}
+				{id < 23 && (
+					<Link to={`/${parseInt(id) + 1}`} className="ml-2 font-serif text-sm text-red-900 lowercase">
+						Next
+					</Link>
+				)}
+			</div>
 		</div>
 	)
 }

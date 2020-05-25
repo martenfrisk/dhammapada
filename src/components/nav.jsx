@@ -1,18 +1,32 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import lotus from '../img/lotus-color.svg'
+import useHover from './utils'
 
 const Navigation = () => {
+	const [ref, hovered ] = useHover()
+	let location = useLocation()
+	let lotusVis
+	location.pathname === "/dhammapada" ? lotusVis = "invisible inline-block" : lotusVis = "visible inline-block"
 	return (
-		<div className="flex">
-			<Link to="/dhammapada" className="inline-block px-6 py-2 mx-2 text-red-900">
-				Home
+		<div className="flex flex-col items-center justify-center w-full mt-4 font-serif text-red-900"
+		ref={ref}>
+			<Link to="/dhammapada" className={lotusVis}>
+				<img src={lotus} className="w-6 h-6 select-none" alt="Lotus flower" />
 			</Link>
-			<Link to="/1" className="inline-block px-6 py-2 mx-2 text-red-900">
-				Chapter 1
-			</Link>
-			<Link to="/2" className="inline-block px-6 py-2 mx-2 text-red-900">
-				Chapter 2
-			</Link>
+			<div>
+				Chapters
+			</div>
+			{hovered &&
+				<div ref={ref} className="absolute left-auto flex flex-col px-4 py-4 ml-32 bg-orange-100 top-5">
+					<Link to="/1" ref={ref} className="inline-block text-sm text-red-900">
+						Chapter 1
+					</Link>
+					<Link to="/2" ref={ref} className="inline-block text-sm text-red-900 ">
+						Chapter 2
+					</Link>
+				</div>
+			}
 		</div>
 	)
 }

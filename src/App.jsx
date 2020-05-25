@@ -17,7 +17,7 @@ function App() {
 		leave: { opacity: 0, display: 'none' },
 	  })
 	return (
-		<div className="flex flex-col items-center w-screen min-h-screen py-10">
+		<div className="flex flex-col items-center w-screen min-h-screen">
 			<Navigation />
 			{transitions.map(({ item, props, key }) => (
 				<animated.div key={key} style={props}>
@@ -27,7 +27,6 @@ function App() {
 					</Switch>
 				</animated.div>
 			))}
-			<div className="my-auto mb-0 text-xs font-light text-red-900 lowercase">Footer content</div>
 		</div>
 	)
 }
