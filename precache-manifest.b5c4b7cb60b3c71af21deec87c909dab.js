@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3de4b77c376a3438e0248ba3f3775a5b",
+    "revision": "3a3f08efe6db32e34638038154a46c17",
     "url": "/dhammapada/index.html"
   },
   {
-    "revision": "45bfd8b7025cf37daaea",
+    "revision": "8567ce00b4674ab309d3",
     "url": "/dhammapada/static/css/main.2a44ff2e.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dhammapada/static/js/2.34a7af6e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "45bfd8b7025cf37daaea",
-    "url": "/dhammapada/static/js/main.9b519427.chunk.js"
+    "revision": "8567ce00b4674ab309d3",
+    "url": "/dhammapada/static/js/main.0ec8af17.chunk.js"
   },
   {
     "revision": "c27f6fab32da3b800abb",
