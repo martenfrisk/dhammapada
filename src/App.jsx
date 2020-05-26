@@ -12,7 +12,7 @@ function App() {
 	// const location = useLocation()
 
 	return (
-		<div className="flex flex-col items-center w-screen min-h-screen">
+		<div className="flex flex-col items-center w-screen h-screen">
 			<Navigation />
 					<Switch>
 						<Route exact path="/dhammapada" component={Home} />

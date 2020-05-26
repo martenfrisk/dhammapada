@@ -25,6 +25,9 @@ const Navigation = () => {
 					<Link to="/dhammapada/2/21" ref={ref} className="inline-block text-sm text-red-900 ">
 						Chapter 2
 					</Link>
+					<Link to="/dhammapada/3" ref={ref} className="inline-block text-sm text-red-900 ">
+						Chapter 3
+					</Link>
 				</div>
 			}
 		</div>

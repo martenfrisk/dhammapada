@@ -1,0 +1,70 @@
+{/* const leftScroll = () => {
+							var container = document.getElementById('container')
+							var containerScrollPosition = document.getElementById('container').scrollLeft
+							history.push(`./${parseInt(item[0]) - 1}`)
+							container.scrollTo({
+								top: 0,
+								left: containerScrollPosition - 300,
+								behavior: 'smooth'
+							})
+						}
+						const rightScroll = () => {
+							var container = document.getElementById('container')
+							var containerScrollPosition = document.getElementById('container').scrollLeft
+							history.push(`./${parseInt(item[0]) + 1}`)
+							container.scrollTo({
+								top: 0,
+								left: containerScrollPosition + 300,
+								behavior: 'smooth'
+							})
+                        } */}
+                        
+
+
+
+                        {/* <Link
+				className="absolute top-0 flex items-center justify-start w-12 text-xs text-red-800 opacity-50 cursor-pointer select-none md:text-base left-4 md:left-20 h-80 mt-72 lg:left-80"
+				to={`./${- 1}`}
+			>
+				&#10094;
+			</Link> */}
+			{/* <Link
+				className="absolute top-0 flex items-center justify-end w-12 text-xs text-red-800 opacity-50 cursor-pointer select-none md:text-base right-4 h-80 mt-72 lg:right-80 md:right-20"
+				to={`./${versePos + 1}`}
+			>
+				&#10095;
+			</Link> */}
+
+
+			const onWheelTwo = (e) => {
+				if (e.deltaY !== 0) {
+					e.preventDefault()
+					e.stopPropagation()
+					var scrollX = scrollJack(e.deltaX, e.deltaY)
+					document.getElementById('container').scrollBy(scrollX, 0)
+					if (e.deltaY > 0 && item[0] < lastItem) {
+						history.push(`./${parseInt(item[0]) + 1}`)
+					} else if (e.deltaY < 0 && item[0] > firstItem) {
+						history.push(`./${parseInt(item[0]) - 1}`)
+					}
+				}
+			}
+			const scrollJack = (dx, dy) => ((dy + dx) > 0) ? 1 : -1
+
+
+
+			
+	// const handleSwipe = (direction, item, lastItem, firstItem) => {
+	// 	if (item < lastItem && direction === 0) {
+	// 		history.push(`./${parseInt(item) + 1}`)
+	// 	} else if ( item[0] > firstItem && direction === 1) {
+	// 		history.push(`./${parseInt(item) - 1}`)
+	// 	}
+	// }
+
+	// const handlers = useSwipeable({
+	// 	onSwipedLeft: () => handleSwipe(0, item[0], lastItem, firstItem),
+	// 	onSwipedRight: () => handleSwipe(1, item[0], lastItem, firstItem),
+	// 	preventDefaultTouchmoveEvent: true,
+	// 	trackTouch: true
+	// })

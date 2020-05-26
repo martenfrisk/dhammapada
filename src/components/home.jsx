@@ -26,9 +26,9 @@ if ("maxTouchPoints" in navigator) {
 
 
 	return (
-		<div className="flex flex-col items-center self-center mx-auto mt-20 text-2xl">
+		<div className="flex flex-col items-center self-center mx-auto mt-6 text-2xl">
 			<div className="font-serif text-3xl font-thin font-normal text-red-900">Dhammapada Reader</div>
-			<img src={buddha} className="w-24 h-24 mt-16 mb-16 " alt="Lotus flower" />
+			<img src={buddha} className="w-24 h-24 mt-10 mb-4 " alt="Lotus flower" />
 			<div className="w-2/3 mb-8 font-serif text-base text-center">
 <p className="mb-2">The Dhammapada is a collection of sayings of the Buddha and one of the most widely read Buddhist scriptures.</p>
 <p className="mb-2">Use this website to read it without distractions.</p>

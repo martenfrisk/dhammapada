@@ -22,15 +22,17 @@
 	width: 300px;
 	display: flex;
 	overflow-x: scroll;
-	scroll-snap-type: x mandatory;
-    -ms-overflow-style: none; /* IE 11 */
+	touch-action: none;
+	// scroll-snap-type: x mandatory;
+    // -ms-overflow-style: none; /* IE 11 */
     scrollbar-width: none; /* Firefox 64 */
 }
 
 .scroll-child {
-	scroll-snap-align: center;
-	height: 500px;
-	flex: 0 0 100%;
+	// scroll-snap-align: center;
+	// height: 500px;
+	width: 300px;
+	// flex: 0 0 100%;
 	::-webkit-scrollbar {
 		display: none;
 	}
