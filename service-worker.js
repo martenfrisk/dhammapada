@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/dhammapada/precache-manifest.b5c4b7cb60b3c71af21deec87c909dab.js"
+  "/dhammapada/precache-manifest.c1a3aaaccbd073f55a1fdac2b5700cbe.js"
 );
 
 self.addEventListener('message', (event) => {
