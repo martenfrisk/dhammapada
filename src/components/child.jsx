@@ -19,13 +19,13 @@ export default function Child(props) {
 	// 	leave: { opacity: 0, display: 'none' },
 	//   })
 
-	const handlers = useSwipeable({ 
-		onSwipedRight: () => setArrow(() => 'ArrowLeft'),
-		onSwipedLeft: () => setArrow(() => 'ArrowRight'),
-		preventDefaultTouchmoveEvent: true,
-		trackTouch: true,
-		delta: 300
-	 })
+	// const handlers = useSwipeable({ 
+	// 	onSwipedRight: () => setArrow(() => 'ArrowLeft'),
+	// 	onSwipedLeft: () => setArrow(() => 'ArrowRight'),
+	// 	preventDefaultTouchmoveEvent: true,
+	// 	trackTouch: true,
+	// 	delta: 300
+	//  })
 	function addLineBreaks(arr, i) {
 		return ( arr.slice(1, arr.length).map((item, index) => {
 			let ex = 'w-full'
@@ -60,9 +60,9 @@ export default function Child(props) {
 
 		return null
 	}
-	console.log(location.pathname)
+	
 	return (
-		<div className="flex flex-col items-center" onKeyDown={keyPress} {...handlers}>
+		<div className="flex flex-col items-center" onKeyDown={keyPress}>
 			<ScrollResetOnMount />
 			{location.pathname === `/dhammapada/${id}` && <Redirect from={`./${id}`} to={`./${id}/${initVersePos}`} />}
 			{location.pathname === `/dhammapada/${id}/` && <Redirect from={`/dhammapada/${id}`} to={`/dhammapada/${id}/${initVersePos}`} />}

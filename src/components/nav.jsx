@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import buddhabrown from '../img/lotus-color.svg'
+import lotus from '../img/lotus-yellow.svg'
 import useHover from './utils'
 
 const Navigation = () => {
@@ -12,7 +12,7 @@ const Navigation = () => {
 		<div className="flex flex-col items-center justify-center w-full mt-4 font-serif text-red-900"
 		ref={ref}>
 			<Link to="/dhammapada/" className={lotusVis}>
-				<img src={buddhabrown} className="w-6 h-6 select-none" alt="Return to homepage" />
+				<img src={lotus} className="w-6 h-6 select-none" alt="Return to homepage" />
 			</Link>
 			<div className="select-none">
 				Chapters
