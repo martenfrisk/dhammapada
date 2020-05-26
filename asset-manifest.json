@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/dhammapada/static/css/main.2a44ff2e.chunk.css",
-    "main.js": "/dhammapada/static/js/main.92550695.chunk.js",
-    "main.js.map": "/dhammapada/static/js/main.92550695.chunk.js.map",
+    "main.js": "/dhammapada/static/js/main.9b519427.chunk.js",
+    "main.js.map": "/dhammapada/static/js/main.9b519427.chunk.js.map",
     "runtime-main.js": "/dhammapada/static/js/runtime-main.533c0db8.js",
     "runtime-main.js.map": "/dhammapada/static/js/runtime-main.533c0db8.js.map",
-    "static/js/2.adba064d.chunk.js": "/dhammapada/static/js/2.adba064d.chunk.js",
-    "static/js/2.adba064d.chunk.js.map": "/dhammapada/static/js/2.adba064d.chunk.js.map",
+    "static/js/2.34a7af6e.chunk.js": "/dhammapada/static/js/2.34a7af6e.chunk.js",
+    "static/js/2.34a7af6e.chunk.js.map": "/dhammapada/static/js/2.34a7af6e.chunk.js.map",
     "index.html": "/dhammapada/index.html",
-    "precache-manifest.7b4fbd83d180b21abe1c6c82ed93da2e.js": "/dhammapada/precache-manifest.7b4fbd83d180b21abe1c6c82ed93da2e.js",
+    "precache-manifest.35fb46c1c57f05c57aa23dd7785cd4f1.js": "/dhammapada/precache-manifest.35fb46c1c57f05c57aa23dd7785cd4f1.js",
     "service-worker.js": "/dhammapada/service-worker.js",
     "static/css/main.2a44ff2e.chunk.css.map": "/dhammapada/static/css/main.2a44ff2e.chunk.css.map",
-    "static/js/2.adba064d.chunk.js.LICENSE.txt": "/dhammapada/static/js/2.adba064d.chunk.js.LICENSE.txt",
+    "static/js/2.34a7af6e.chunk.js.LICENSE.txt": "/dhammapada/static/js/2.34a7af6e.chunk.js.LICENSE.txt",
     "static/media/buddha-blue.svg": "/dhammapada/static/media/buddha-blue.75c4cc22.svg",
     "static/media/lotus-color.svg": "/dhammapada/static/media/lotus-color.f98f508e.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.533c0db8.js",
-    "static/js/2.adba064d.chunk.js",
+    "static/js/2.34a7af6e.chunk.js",
     "static/css/main.2a44ff2e.chunk.css",
-    "static/js/main.92550695.chunk.js"
+    "static/js/main.9b519427.chunk.js"
   ]
 }
