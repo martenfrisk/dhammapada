@@ -18,7 +18,7 @@ const Navigation = () => {
 				Chapters
 			</div>
 			{hovered &&
-				<div ref={ref} className="absolute left-auto flex flex-col px-4 py-4 ml-32 bg-orange-100 top-5">
+				<div ref={ref} className="absolute left-auto flex flex-col px-2 py-3 ml-20 bg-orange-100 rounded-md top-8">
 					<Link to="/1" ref={ref} className="inline-block text-sm text-red-900">
 						Chapter 1
 					</Link>

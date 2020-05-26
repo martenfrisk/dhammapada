@@ -3,6 +3,7 @@ import { dhp } from '../dhp-1'
 import '../App.css'
 import { Link, useParams, Redirect, useLocation, useHistory, Route } from 'react-router-dom'
 import { useSwipeable } from 'react-swipeable'
+// import { useTransition, animated } from 'react-spring'
 
 export default function Child(props) {
 	let { id } = useParams()
@@ -12,16 +13,25 @@ export default function Child(props) {
 	const [arrow, setArrow] = useState()
 	const history = useHistory()
 	let chapterName = currText[0]
+	// const transitions = useTransition(location, location => location.pathname, {
+	// 	from: { opacity: 0, display: 'none' },
+	// 	enter: { opacity: 1, display: 'block' },
+	// 	leave: { opacity: 0, display: 'none' },
+	//   })
+
 	const handlers = useSwipeable({ 
 		onSwipedRight: () => setArrow(() => 'ArrowLeft'),
 		onSwipedLeft: () => setArrow(() => 'ArrowRight'),
+		preventDefaultTouchmoveEvent: true,
+		trackTouch: true,
+		delta: 300
 	 })
 	function addLineBreaks(arr, i) {
-		return arr.slice(1, arr.length).map((item, index) => {
+		return ( arr.slice(1, arr.length).map((item, index) => {
 			let ex = 'w-full'
 			let clas = item[0] + ' ' + ex
 			return <div className={clas}>{item[1]}</div>
-		})
+		}))
 	}
 
 
@@ -56,7 +66,7 @@ export default function Child(props) {
 			<ScrollResetOnMount />
 			{location.pathname === `/${id}` && <Redirect from={`/${id}`} to={`/${id}/${initVersePos}`} />}
 			<div className="pt-12 -mt-1 font-serif text-base text-red-900 cursor-pointer" onClick={props.click}>
-				&#9662;{props.title && `Chapter ${id}: ${chapterName}`}
+				&#9662;&nbsp;{props.title && `Chapter ${id}: ${chapterName}`}
 			</div>
 			<div
 				className="justify-start w-full mt-2 scrolling-touch rounded-lg md:w-1/2 scroll-parent lg:w-1/2"
@@ -85,12 +95,10 @@ export default function Child(props) {
 						const scrollJack = (dx, dy) => (dy + dx > 0 ? 1 : -1)
 
 						
-
 						return (
 							<Route path={`/${id}/${item[0]}`}>
 							{arrow === 'ArrowRight' && item[0] < lastItem ? <Redirect to={`./${parseInt(item[0]) + 1}`} /> : null}
 							{arrow === 'ArrowLeft' && item[0] > firstItem ? <Redirect to={`./${parseInt(item[0]) - 1}`} /> : null}
-
 								<div
 									className="flex flex-col items-center justify-start scrolling-touch font-serif font-medium leading-9 text-red-900 scroll-child"
 									key={index}
