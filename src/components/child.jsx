@@ -64,7 +64,8 @@ export default function Child(props) {
 	return (
 		<div className="flex flex-col items-center" onKeyDown={keyPress} {...handlers}>
 			<ScrollResetOnMount />
-			{location.pathname === `/${id}` && <Redirect from={`/${id}`} to={`/${id}/${initVersePos}`} />}
+			{location.pathname === `/dhammapada/${id}` && <Redirect from={`./${id}`} to={`./${id}/${initVersePos}`} />}
+			{location.pathname === `/dhammapada/${id}/` && <Redirect from={`/dhammapada/${id}`} to={`/dhammapada/${id}/${initVersePos}`} />}
 			<div className="pt-12 -mt-1 font-serif text-base text-red-900 cursor-pointer" onClick={props.click}>
 				&#9662;&nbsp;{props.title && `Chapter ${id}: ${chapterName}`}
 			</div>
@@ -96,7 +97,7 @@ export default function Child(props) {
 
 						
 						return (
-							<Route path={`/${id}/${item[0]}`}>
+							<Route exact path={`/dhammapada/${id}/${item[0]}`}>
 							{arrow === 'ArrowRight' && item[0] < lastItem ? <Redirect to={`./${parseInt(item[0]) + 1}`} /> : null}
 							{arrow === 'ArrowLeft' && item[0] > firstItem ? <Redirect to={`./${parseInt(item[0]) - 1}`} /> : null}
 								<div
@@ -107,7 +108,7 @@ export default function Child(props) {
 									<div className="pb-2 opacity-75">{item[0]}</div>
 
 									{addLineBreaks(item, index)}
-									{location.pathname === "/1/1" ?
+									{location.pathname === "/dhammapada/1/1" ?
 									""
 									:
 									(item[0] > firstItem ? (
@@ -120,7 +121,7 @@ export default function Child(props) {
 									) : (
 										<Link
 											className="absolute top-0 flex items-center justify-start w-12 text-xs text-red-800 opacity-50 cursor-pointer select-none md:text-base left-4 md:left-20 h-80 mt-72 lg:left-80"
-											to={`/${parseInt(id) - 1}`}
+											to={`/dhammapada/${parseInt(id) - 1}`}
 										>
 											previous
 										</Link>
@@ -135,7 +136,7 @@ export default function Child(props) {
 									) : (
 										<Link
 											className="absolute top-0 flex items-center justify-end w-12 text-xs text-red-800 opacity-50 cursor-pointer select-none md:text-base right-4 h-80 mt-72 lg:right-80 md:right-20"
-											to={`/${parseInt(id) + 1}`}
+											to={`/dhammapada/${parseInt(id) + 1}`}
 										>
 											next
 										</Link>
@@ -148,12 +149,12 @@ export default function Child(props) {
 
 			<div className="flex font-serif text-sm text-red-900 lowercase opacity-50">
 				{id > 1 && (
-					<Link to={`/${parseInt(id) - 1}`} className="mt-px mr-2 text-xs">
+					<Link to={`/dhammapada/${parseInt(id) - 1}`} className="mt-px mr-2 text-xs">
 					&#10094;
 					</Link>
 				)}&nbsp;chapter&nbsp;
 				{id < 23 && (
-					<Link to={`/${parseInt(id) + 1}`} className="mt-px ml-2 text-xs">
+					<Link to={`/dhammapada/${parseInt(id) + 1}`} className="mt-px ml-2 text-xs">
 					&#10095;
 					</Link>
 				)}

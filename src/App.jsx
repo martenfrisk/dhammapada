@@ -15,8 +15,9 @@ function App() {
 		<div className="flex flex-col items-center w-screen min-h-screen">
 			<Navigation />
 					<Switch>
-						<Route path="/dhammapada" component={Home} />
-						<Route path="/:id" children={<Child title={toggleTitle} click={titleToggle} />} />
+						<Route exact path="/dhammapada" component={Home} />
+						<Route path="/dhammapada/:id" children={<Child title={toggleTitle} click={titleToggle} />} />
+						<Route component={Home} />
 					</Switch>
 		</div>
 	)

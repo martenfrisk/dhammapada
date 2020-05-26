@@ -36,7 +36,7 @@ if ("maxTouchPoints" in navigator) {
 			
 			{hasTouchScreen ? <p className="text-gray-800">Swipe sideways or use the side markers to go to next verse.</p> : <p className="text-gray-800">Navigate using your left/right arrow keys, scroll or by clicking the markers on the side of the text.</p>}
 			</div>
-			<Link to="/1" className="font-serif text-sm text-red-900 lowercase border-b border-red-900 border-dashed">
+			<Link to="/dhammapada/1" className="font-serif text-sm text-red-900 lowercase border-b border-red-900 border-dashed">
 				start chapter one
 			</Link>
 			<div className="mt-48 text-xs font-light text-red-900 lowercase">sources and copyright information</div>
