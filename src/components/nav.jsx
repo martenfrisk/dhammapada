@@ -14,7 +14,7 @@ const Navigation = () => {
 			<Link to="/dhammapada" className={lotusVis}>
 				<img src={buddhabrown} className="w-6 h-6 select-none" alt="Return to homepage" />
 			</Link>
-			<div>
+			<div className="select-none">
 				Chapters
 			</div>
 			{hovered &&

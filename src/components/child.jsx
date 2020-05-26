@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { dhp } from '../dhp-1'
 import '../App.css'
 import { Link, useParams, Redirect, useLocation, useHistory, Route } from 'react-router-dom'
+import { useSwipeable } from 'react-swipeable'
 
 export default function Child(props) {
 	let { id } = useParams()
@@ -11,6 +12,10 @@ export default function Child(props) {
 	const [arrow, setArrow] = useState()
 	const history = useHistory()
 	let chapterName = currText[0]
+	const handlers = useSwipeable({ 
+		onSwipedRight: () => setArrow(() => 'ArrowLeft'),
+		onSwipedLeft: () => setArrow(() => 'ArrowRight'),
+	 })
 	function addLineBreaks(arr, i) {
 		return arr.slice(1, arr.length).map((item, index) => {
 			let ex = 'w-full'
@@ -19,16 +24,6 @@ export default function Child(props) {
 		})
 	}
 
-
-
-	// if (key === 'ArrowRight' && currItem < lastItem) {
-	// 	history.push(`./${parseInt(currItem) + 1}`)
-	// 	console.log("Right")
-	//  } else if (key === 'ArrowLeft' && currItem > firstItem) {
-	// 	history.push(`./${parseInt(currItem) - 1}`)
-	// 	console.log("Left")
-	
-	
 
 	useEffect(() => {
 		window.addEventListener('keydown', keyPress);
@@ -57,7 +52,7 @@ export default function Child(props) {
 	}
 	console.log(location.pathname)
 	return (
-		<div className="flex flex-col items-center" onKeyDown={keyPress}>
+		<div className="flex flex-col items-center" onKeyDown={keyPress} {...handlers}>
 			<ScrollResetOnMount />
 			{location.pathname === `/${id}` && <Redirect from={`/${id}`} to={`/${id}/${initVersePos}`} />}
 			<div className="pt-12 -mt-1 font-serif text-base text-red-900 cursor-pointer" onClick={props.click}>
@@ -97,7 +92,7 @@ export default function Child(props) {
 							{arrow === 'ArrowLeft' && item[0] > firstItem ? <Redirect to={`./${parseInt(item[0]) - 1}`} /> : null}
 
 								<div
-									className="flex flex-col items-center justify-start font-serif font-medium leading-9 text-red-900 scroll-child"
+									className="flex flex-col items-center justify-start scrolling-touch font-serif font-medium leading-9 text-red-900 scroll-child"
 									key={index}
 									onWheel={onWheelTwo}
 								>
